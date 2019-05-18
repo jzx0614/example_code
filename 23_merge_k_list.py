@@ -4,6 +4,7 @@
 #         self.val = x
 #         self.next = None
 
+
 class Solution(object):
     def mergeKLists(self, lists):
         """
@@ -11,19 +12,25 @@ class Solution(object):
         :rtype: ListNode
         """
         def getMinNode(lists):
-          if len(lists) == 0:
-            return None
+            if len(lists) == 0:
+                return None
+
+            min_data = (lists[0].val, 0)
+            for idx, node in enumerate(lists):
+                if node.val < min_data[0]:
+                    min_data = (node, node.val, idx)
+
+            node, val, idx = min_data
             
-          min_value = lists[0]
-          for idx, node in enumerate(lists):
-            if node.val == 
-        dummy = current = ListNode(0)
-        while l1 and l2:
-            if l1.val > l2.val:
-                l1, l2 = l2, l1
-            current.next = l1
-            current = l1
-            l1 = l1.next
-        current.next = l1 or l2
-            
-        return dummy.next
+            if (node.next == None):
+                del lists[idx]
+            else:
+                lists[idx] = node.next
+
+            node.next = self.getMinNode(lists)
+            return node
+
+        lists = [node for node in lists if node]
+        head = getMinNode(lists)
+
+        return head
