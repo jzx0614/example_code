@@ -16,7 +16,7 @@ class Solution(object):
             ['', 'C', 'CC', 'CCC', 'CD', 'D', 'DC', 'DCC', 'DCCC', 'CM'], 
             ['', 'M', 'MM', 'MMM']
         ]
-        num_len = len(str(num))
+
         output_str = ""
         digital = 0
         while num != 0:
