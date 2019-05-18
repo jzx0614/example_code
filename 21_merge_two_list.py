@@ -12,24 +12,14 @@ class Solution(object):
         :rtype: ListNode
         """
 
-        def getMin(node1, node2):
-            if not node1 and not node2: return None
-            if not node2: return node1
-            if not node1: return node2
-            if node1.val < node2.val:
-                r = node1
-                node1 = node1.next
-                return r
-            else:
-                r = node2
-                node2 = node2.next
-                return r
-
-        head = node = getMin(l1, l2)
-        while True:
-            r = getMin(l1, l2)
-            if r == None: break
-                
-            node.next = r
-            r.next = None            
+        dummy = current = ListNode(0)
+        while l1 and l2:
+            if l1.val > l2.val:
+                l1, l2 = l2, l1
+            current.next = l1
+            current = l1
+            l1 = l1.next
+        current.next = l1 or l2
+            
+        return dummy.next
 
