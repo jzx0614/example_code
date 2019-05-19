@@ -14,7 +14,7 @@ class Solution(object):
                 # print stack, idx, stack[-1]
                 stack.pop()
                 if not stack: stack.append(idx)
-                print stack, idx, stack[-1]
+                # print stack, idx, stack[-1]
                 max_value = max(max_value, idx - stack[-1])
                 
         return max_value
