@@ -6,7 +6,6 @@ class Solution(object):
         :rtype: int
         """
         def divide_numer(dividend, divisor):
-            print dividend, divisor,
             count = 0
             while not (dividend >= 0 and dividend < abs(divisor)):
                 # if(dividend > 0) ^ (divisor > 0):
@@ -17,7 +16,6 @@ class Solution(object):
                 #     count += 1
                 dividend -= divisor
                 count += 1
-            print count, dividend
             return count, dividend
 
         sign = [(dividend > 0), (divisor > 0)]
