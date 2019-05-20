@@ -10,6 +10,7 @@ class Solution(object):
 
         for idx in range(2, n):
             pre_char = ""
+            count = 1
             for c in r[idx]:
                 if pre_char == c:
                     count += 1
