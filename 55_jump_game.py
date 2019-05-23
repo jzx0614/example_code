@@ -14,7 +14,7 @@ class Solution(object):
             for i in xrange(idx+1,idx+n+1):
                 step[i] = True
             max_distance = n + idx
-        print step
+        # print step
         return step[-1]
 
 if __name__ == "__main__":
