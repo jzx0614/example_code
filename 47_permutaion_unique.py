@@ -7,7 +7,6 @@ class Solution(object):
         self.output = set()
         self.stack = []
         def dfs(num_list):
-            print num_list, self.stack
             if not num_list:
                 self.output.add(tuple(self.stack))
             for idx, n in enumerate(num_list):
