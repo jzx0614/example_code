@@ -19,8 +19,6 @@ class Solution(object):
             v = v1 + v2 + carry
             carry = v / 2
             output = str(v%2) + output
-            print output
-
             
         if carry == 1:
             output = '1' + output
