@@ -14,9 +14,6 @@ class Solution(object):
                 up = 1e9 if i == 0 else grid[i-1][j]
                 grid[i][j] += min(left, up)
 
-                print grid
-
-        print grid
         return grid[-1][-1]
 
 if __name__ == "__main__":
