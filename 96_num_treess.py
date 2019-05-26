@@ -15,7 +15,7 @@ class Solution(object):
         for x in xrange(n):
             for y in xrange(n):
                 i, j = y, x + y 
-                print i, j
+
                 if j >= n:
                     continue
 
