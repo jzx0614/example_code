@@ -11,20 +11,17 @@ class Solution(object):
         :type root: TreeNode
         :rtype: bool
         """
-        self.max_depth = 0
-        def update_depth(depth):
-            print depth, self.max_depth
-            if self.max_depth == 0:
-                self.max_depth = depth
-                return True
+        self.ans = True
+        def dfs(node):
+            if not node: return 0
+            if not self.ans: return None
 
-            if abs(depth - self.max_depth) > 1:  
-                return False
-            return True
+            left = dfs(node.left)
+            right = dfs(node.right)
 
-        def dfs(node, depth):
-            if not node: 
-                return update_depth(depth)
-
-            return dfs(node.left, depth+1) and dfs(node.right, depth+1))
-        return dfs(root, 1)
+            if left is None or right is None or abs(left-right) > 1:
+                self.ans = False
+            
+            return max(left,right) + 1
+        dfs(root)
+        return self.ans
