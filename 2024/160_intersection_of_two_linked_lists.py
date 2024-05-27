@@ -21,7 +21,7 @@ class ListNode:
         return outstr
 
 
-def genListNode(list_node):
+def gen_list_node(list_node):
     head_node = current_node = ListNode(list_node.pop(0))
     for node_value in list_node:
         node = ListNode(node_value)
@@ -29,51 +29,51 @@ def genListNode(list_node):
         current_node = node
     return head_node
 
-def createHead(list_node, head: ListNode):
-    node = root = genListNode(list_node)
+def create_head(list_node, head: ListNode):
+    node = root = gen_list_node(list_node)
     while node.next:
         node = node.next
     node.next = head
     return root
     
 class Solution:
-    def countListNode(self, head: ListNode):
+    def len_list_node(self, head: ListNode):
         count = 0
         while head:
             count += 1
             head = head.next
         return count
 
-    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+    def getIntersectionNode(self, head1: ListNode, head2: ListNode) -> Optional[ListNode]:
         '''
             count listNode A, B, then let two list equal
             sequence compare two list 
         '''
-        countA = self.countListNode(headA)
-        countB = self.countListNode(headB)
+        count1 = self.len_list_node(head1)
+        count2 = self.len_list_node(head2)
         
-        if countA == 0 or countB == 0:
+        if count1 == 0 or count2 == 0:
             return None
         
-        if countA < countB:
-            headA, headB = headB, headA
-            countA, countB = countB, countA
+        if count1 < count2:
+            head1, head2 = head2, head1
+            count1, count2 = count2, count1
 
-        while countA != countB:
-            headA = headA.next
-            countA -= 1
+        while count1 != count2:
+            head1 = head1.next
+            count1 -= 1
 
-        while headA != headB:
-            headA = headA.next
-            headB = headB.next
+        while head1 != head2:
+            head1 = head1.next
+            head2 = head2.next
 
-        return headA
+        return head1
 
 
 if __name__ == "__main__":
-    node = genListNode([8,4,5])
-    headA = createHead([4, 1], node)
-    headB = createHead([5, 6, 1], node)
-    print(Solution().getIntersectionNode(headA, headB))
+    node = gen_list_node([8,4,5])
+    head1 = create_head([4, 1], node)
+    head2 = create_head([5, 6, 1], node)
+    print(Solution().getIntersectionNode(head1, head2))
 
     

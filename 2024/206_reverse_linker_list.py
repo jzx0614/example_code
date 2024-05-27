@@ -21,7 +21,7 @@ class ListNode:
         return outstr
 
 
-def genListNode(list_node):
+def gen_list_node(list_node):
     head_node = current_node = ListNode(list_node.pop(0))
     for node_value in list_node:
         node = ListNode(node_value)
@@ -71,7 +71,7 @@ class Solution:
 
 
 if __name__ == "__main__":
-    node = genListNode([8,4,5,7,8,9])
+    node = gen_list_node([8,4,5,7,8,9])
     print(Solution().reverseList(node))
 
     

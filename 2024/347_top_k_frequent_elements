@@ -1,0 +1,22 @@
+import heapq
+class Solution:
+    def topKFrequent(self, nums: list[int], k: int) -> list[int]:
+        if len(nums) == 0:
+            return []
+        
+        count_map = {}
+        for num in nums:
+            count = count_map.get(num, 0) + 1
+            count_map[num] = count
+
+        heap = []
+        for key, value in count_map.items():
+            if k > len(heap):
+                heapq.heappush(heap, (value, key))
+                continue
+            heapq.heappushpop(heap, (value, key))
+        
+        return [v[1] for v in heap]
+    
+if __name__ == "__main__":
+    print(Solution().topKFrequent([1,1,1,2,2,3], 2))
