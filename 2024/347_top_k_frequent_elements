@@ -6,8 +6,7 @@ class Solution:
         
         count_map = {}
         for num in nums:
-            count = count_map.get(num, 0) + 1
-            count_map[num] = count
+            count_map[num] = count_map.get(num, 0) + 1
 
         heap = []
         for key, value in count_map.items():
